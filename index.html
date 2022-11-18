@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Color Scheme Generator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main class="container">
+            <div class="controls">
+                <div class="scheme-options">
+                    <div class="option-wrapper">
+                        <label for="seed-color">Seed color</label>
+                        <input type="color" id="seed-color">
+                    </div>
+                    <div class="option-wrapper">
+                        <label for="scheme-mode">Scheme mode</label>
+                        <select id="scheme-mode">
+                            <option value="monochrome">Monochrome</option>
+                            <option value="monochrome-dark">Monochrome-dark</option>
+                            <option value="monochrome-light">Monochrome-light</option>
+                            <option value="analogic">Analogic</option>
+                            <option value="complement">Complement</option>
+                            <option value="analogic-complement">Analogic-complement</option>
+                            <option value="triad">Triad</option>
+                        </select>
+                    </div>
+                    <div class="option-wrapper">
+                        <label for="number-of-colors">Number of colors</label>
+                        <select id="number-of-colors">
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>  
+                <button>Get color scheme</button>  
+            </div>
+            <div class="preview"></div>
+            <div class="color-codes"></div>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>
