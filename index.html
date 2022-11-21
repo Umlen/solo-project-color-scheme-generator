@@ -13,11 +13,11 @@
                 <div class="scheme-options">
                     <div class="option-wrapper">
                         <label for="seed-color">Seed color</label>
-                        <input type="color" id="seed-color">
+                        <input type="color" class="option-color" id="seed-color">
                     </div>
                     <div class="option-wrapper">
                         <label for="scheme-mode">Scheme mode</label>
-                        <select id="scheme-mode">
+                        <select class="option-select" id="scheme-mode">
                             <option value="monochrome">Monochrome</option>
                             <option value="monochrome-dark">Monochrome-dark</option>
                             <option value="monochrome-light">Monochrome-light</option>
@@ -28,8 +28,8 @@
                         </select>
                     </div>
                     <div class="option-wrapper">
-                        <label for="number-of-colors">Number of colors</label>
-                        <select id="number-of-colors">
+                        <label for="count-of-colors">Count of colors</label>
+                        <select class="option-select" id="count-of-colors">
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
@@ -41,7 +41,7 @@
                         </select>
                     </div>
                 </div>  
-                <button>Get color scheme</button>  
+                <button class="get-scheme-btn" id="get-scheme-btn">Get color scheme</button>  
             </div>
             <div class="preview"></div>
         </main>

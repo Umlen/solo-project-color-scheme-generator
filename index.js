@@ -1,24 +1,33 @@
-fetch('https://www.thecolorapi.com/scheme?hex=FF52CF&mode=analogic&count=10')
-    .then( response => response.json() )
-    .then( data => {
-        data.colors.map( color => {
-            console.log(color.hex.value);
-            console.log( (color.hsl.fraction.l * 100 ).toFixed(0) );
-            const hex = color.hex.value;
-            const lightness = (color.hsl.fraction.l * 100 ).toFixed(0);
-            render(hex, lightness);
-        } );
-    } );
+const previewEl = document.querySelector('.preview');
 
-function render(colorCode, colorLightness) {
-    const div = document.createElement('div');
-    div.style.backgroundColor = colorCode;
-    div.style.color = colorLightness > 50 ? '#000000' : '#ffffff';
-    if (document.documentElement.clientWidth < 700) {
-        div.style.height = document.querySelector('.preview').offsetHeight / 10 + 'px';
-    } else {
-        div.style.width = document.querySelector('.preview').offsetWidth / 10 + 'px';
-    }
-    div.textContent = colorCode;
-    document.querySelector('.preview').append(div);
+document.getElementById('get-scheme-btn').addEventListener('click', () => {
+    const seedColor = document.getElementById('seed-color').value.replace('#', '').toUpperCase();
+    const schemeMode = document.getElementById('scheme-mode').value;
+    const countOfColors = document.getElementById('count-of-colors').value;
+    getDataFromApi(seedColor, schemeMode, countOfColors);
+});
+
+getDataFromApi('50509B', 'monochrome', '5');
+
+function getDataFromApi(hexCode, mode, count) {
+    fetch(`https://www.thecolorapi.com/scheme?hex=${hexCode}&mode=${mode}&count=${count}`)
+    .then(response => response.json())
+    .then(data => render(data));
+}
+
+function render(schemeObj) {
+    previewEl.innerHTML = '';
+    schemeObj.colors.map(color => {
+        const hex = color.hex.value;
+        const lightness = (color.hsl.fraction.l * 100 ).toFixed(0);
+        previewEl.append(createSchemeElem(hex, lightness));
+    });
+}
+
+function createSchemeElem(colorCode, colorLightness) {
+    const colorDiv = document.createElement('div');
+    colorDiv.style.backgroundColor = colorCode;
+    colorDiv.style.color = colorLightness > 50 ? '#000000' : '#ffffff';
+    colorDiv.textContent = colorCode;
+    return colorDiv;
 }

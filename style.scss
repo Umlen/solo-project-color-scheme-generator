@@ -27,7 +27,7 @@ html, body {
     gap: 1rem;
     @media (min-width: 700px) {
         justify-content: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         border-bottom: 2px solid #edf2fb;
         box-shadow: 0 1px 5px #edf2fb;
     }
@@ -59,13 +59,13 @@ html, body {
     }
 }
 
-input, select {
+.option-color, .option-select {
     height: 2rem;
     width: 100%;
     letter-spacing: inherit;
 }
 
-button {
+.get-scheme-btn {
     min-height: 2rem;
     padding: .5rem;
     letter-spacing: inherit;
@@ -79,6 +79,7 @@ button {
     flex-direction: column;
     height: 100%;
     & div {
+        height: 100%;
         width: 100%;
         font-weight: 600;
         padding-left: 2rem;
@@ -88,7 +89,6 @@ button {
     @media (min-width: 700px) {
         flex-direction: row;
         & div {
-            height: 100%;
             padding-left: 0;
             justify-content: center;
         }
