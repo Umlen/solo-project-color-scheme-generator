@@ -14,20 +14,22 @@ html, body {
 .container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .controls {
     width: 100%;
     padding: 2rem 1rem;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #edf2fb;
-    box-shadow: 0 1px 5px #edf2fb;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
     @media (min-width: 700px) {
         justify-content: center;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #edf2fb;
+        box-shadow: 0 1px 5px #edf2fb;
     }
     @media (min-width: 800px) {
         gap: 2rem;
@@ -68,6 +70,27 @@ button {
     padding: .5rem;
     letter-spacing: inherit;
     @media (min-width: 700px) {
-        height: 100%;
+        align-self: stretch;
+    }
+}
+
+.preview {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    & div {
+        width: 100%;
+        font-weight: 600;
+        padding-left: 2rem;
+        display: flex;
+        align-items: center;
+    }
+    @media (min-width: 700px) {
+        flex-direction: row;
+        & div {
+            height: 100%;
+            padding-left: 0;
+            justify-content: center;
+        }
     }
 }
