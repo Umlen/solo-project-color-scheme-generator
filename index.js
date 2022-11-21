@@ -1,13 +1,45 @@
 const previewEl = document.querySelector('.preview');
+const seedColorEl = document.getElementById('seed-color');
+const schemeModeEl = document.getElementById('scheme-mode');
+const countOfColorsEl = document.getElementById('count-of-colors');
 
 document.getElementById('get-scheme-btn').addEventListener('click', () => {
-    const seedColor = document.getElementById('seed-color').value.replace('#', '').toUpperCase();
-    const schemeMode = document.getElementById('scheme-mode').value;
-    const countOfColors = document.getElementById('count-of-colors').value;
+    const seedColor = seedColorEl.value.replace('#', '').toUpperCase();
+    const schemeMode = schemeModeEl.value;
+    const countOfColors = countOfColorsEl.value;
     getDataFromApi(seedColor, schemeMode, countOfColors);
 });
 
-getDataFromApi('50509B', 'monochrome', '5');
+getRandomScheme();
+
+function getRandomScheme() {
+    /*getting random hex code*/
+    const symbols = '0123456789ABCDEF';
+    let randomColorCode = '';
+    for (let i = 0; i < 6; i++) {
+        randomColorCode += symbols.charAt(Math.floor(Math.random() * 16));
+    }
+    seedColorEl.value = '#' + randomColorCode;
+
+    /*getting random sheme mode*/
+    const modes = [
+        'monochrome',
+        'monochrome-dark',
+        'monochrome-light',
+        'analogic',
+        'complement',
+        'analogic-complement',
+        'triad'
+    ];
+    const randomSchemeMode = modes[Math.floor(Math.random() * 7)];
+    schemeModeEl.value = randomSchemeMode;
+
+    /*getting random count*/
+    const randomCount = Math.round(Math.random() * 7 + 3);
+    countOfColorsEl.value = randomCount;
+
+    getDataFromApi(randomColorCode, randomSchemeMode, randomCount);
+}
 
 function getDataFromApi(hexCode, mode, count) {
     fetch(`https://www.thecolorapi.com/scheme?hex=${hexCode}&mode=${mode}&count=${count}`)
@@ -27,7 +59,7 @@ function render(schemeObj) {
 function createSchemeElem(colorCode, colorLightness) {
     const colorDiv = document.createElement('div');
     colorDiv.style.backgroundColor = colorCode;
-    colorDiv.style.color = colorLightness > 50 ? '#000000' : '#ffffff';
+    colorDiv.style.color = colorLightness > 40 ? '#000000' : '#ffffff';
     colorDiv.textContent = colorCode;
     return colorDiv;
 }

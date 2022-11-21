@@ -8,6 +8,8 @@ html, body {
   padding: 0;
   font-family: "Raleway", sans-serif;
   letter-spacing: 1.3px;
+  background-color: #fefeff;
+  color: #2B283A;
 }
 
 .container {
@@ -28,9 +30,6 @@ html, body {
 @media (min-width: 700px) {
   .controls {
     justify-content: center;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #edf2fb;
-    box-shadow: 0 1px 5px #edf2fb;
   }
 }
 @media (min-width: 800px) {
@@ -68,21 +67,47 @@ html, body {
   }
 }
 
-.option-color, .option-select {
+.option-color,
+.option-select,
+.get-scheme-btn {
+  border: 1px solid #2B283A;
+  border-radius: 7px;
+  background-color: #fefeff;
+  cursor: pointer;
+}
+.option-color:focus, .option-color:hover,
+.option-select:focus,
+.option-select:hover,
+.get-scheme-btn:focus,
+.get-scheme-btn:hover {
+  outline: #2B283A 1px solid;
+}
+
+.option-color,
+.option-select {
   height: 2rem;
   width: 100%;
   letter-spacing: inherit;
+}
+
+.option-select,
+.get-scheme-btn {
+  color: inherit;
 }
 
 .get-scheme-btn {
   min-height: 2rem;
   padding: 0.5rem;
   letter-spacing: inherit;
+  box-shadow: 1px 1px 7px #2B283A;
 }
 @media (min-width: 700px) {
   .get-scheme-btn {
     align-self: stretch;
   }
+}
+.get-scheme-btn:active {
+  box-shadow: inset 1px 1px 5px #2B283A;
 }
 
 .preview {
