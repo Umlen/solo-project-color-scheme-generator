@@ -5,19 +5,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <main class="container">
-            <div class="controls">
-                <div class="scheme-options">
-                    <div class="option-wrapper">
+        <main class="container color-inheritance">
+            <div class="controls color-inheritance">
+                <div class="scheme-options color-inheritance">
+                    <div class="option-wrapper color-inheritance">
                         <label for="seed-color">Seed color</label>
-                        <input type="color" class="option-color" id="seed-color">
+                        <input type="color" class="option-color color-inheritance" id="seed-color">
                     </div>
-                    <div class="option-wrapper">
+                    <div class="option-wrapper color-inheritance">
                         <label for="scheme-mode">Scheme mode</label>
-                        <select class="option-select" id="scheme-mode">
+                        <select class="option-select color-inheritance" id="scheme-mode">
                             <option value="monochrome">Monochrome</option>
                             <option value="monochrome-dark">Monochrome-dark</option>
                             <option value="monochrome-light">Monochrome-light</option>
@@ -27,9 +28,9 @@
                             <option value="triad">Triad</option>
                         </select>
                     </div>
-                    <div class="option-wrapper">
+                    <div class="option-wrapper color-inheritance">
                         <label for="count-of-colors">Count of colors</label>
-                        <select class="option-select" id="count-of-colors">
+                        <select class="option-select color-inheritance" id="count-of-colors">
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
@@ -41,7 +42,12 @@
                         </select>
                     </div>
                 </div>  
-                <button class="get-scheme-btn" id="get-scheme-btn">Get color scheme</button>  
+                <button class="get-scheme-btn color-inheritance" id="get-scheme-btn">Get color scheme</button>  
+                <div class="additional-controls">
+                    <i class="fa-solid fa-circle-half-stroke" id="theme-toggle" title="Change theme"></i>
+                    <i class="fa-solid fa-dice" id="get-random-scheme-btn" title="Get random scheme"></i>
+                    <i class="fa-solid fa-circle-info" title="You can click to copy hex code"></i>
+                </div>
             </div>
             <div class="preview"></div>
         </main>

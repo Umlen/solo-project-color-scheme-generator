@@ -1,19 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
 
-$primary-color: #fefeff;
-$secondary-color: #2B283A;
-
 * {
     box-sizing: border-box;
 }
 
+$primary-color: #fefeff;
+$secondary-color: #2B283A;
+
 html, body {
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: 'Raleway', sans-serif;
     letter-spacing: 1.3px;
     background-color: $primary-color;
     color: $secondary-color;
+}
+
+.dark-mode {
+    background-color: $secondary-color;
+    color: $primary-color;
+}
+
+.color-inheritance {
+    background-color: inherit;
+    color: inherit;
 }
 
 .container {
@@ -64,13 +77,12 @@ html, body {
 .option-color, 
 .option-select,
 .get-scheme-btn {
-    border: 1px solid $secondary-color;
+    border: 1px solid;
     border-radius: 7px;
-    background-color: $primary-color;
     cursor: pointer;
     &:focus,
     &:hover {
-        outline: $secondary-color 1px solid;
+        outline: 1px solid;
     }
 }
 
@@ -81,21 +93,39 @@ html, body {
     letter-spacing: inherit;
 }
 
-.option-select, 
-.get-scheme-btn{
-    color: inherit;
+.option-select{
+    padding-left: .5rem;
 }
 
 .get-scheme-btn {
     min-height: 2rem;
     padding: .5rem;
     letter-spacing: inherit;
-    box-shadow: 1px 1px 7px $secondary-color;
+    box-shadow: 1px 1px 7px;
     @media (min-width: 700px) {
         align-self: stretch;
     }
     &:active {
-        box-shadow: inset 1px 1px 5px $secondary-color;
+        box-shadow: inset 1px 1px 5px;
+    }
+}
+
+.additional-controls {
+    gap: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    & i {
+        color: inherit; 
+        font-size: 1rem;
+        &:hover,
+        &:focus {
+            scale: 1.1  ;
+        }
+        &:not(:last-child) {
+            cursor: pointer;
+        }
     }
 }
 

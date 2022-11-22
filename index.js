@@ -10,6 +10,12 @@ document.getElementById('get-scheme-btn').addEventListener('click', () => {
     getDataFromApi(seedColor, schemeMode, countOfColors);
 });
 
+document.getElementById('get-random-scheme-btn').addEventListener('click', getRandomScheme);
+
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
 getRandomScheme();
 
 function getRandomScheme() {

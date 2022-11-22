@@ -6,10 +6,23 @@
 html, body {
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: "Raleway", sans-serif;
   letter-spacing: 1.3px;
   background-color: #fefeff;
   color: #2B283A;
+}
+
+.dark-mode {
+  background-color: #2B283A;
+  color: #fefeff;
+}
+
+.color-inheritance {
+  background-color: inherit;
+  color: inherit;
 }
 
 .container {
@@ -70,9 +83,8 @@ html, body {
 .option-color,
 .option-select,
 .get-scheme-btn {
-  border: 1px solid #2B283A;
+  border: 1px solid;
   border-radius: 7px;
-  background-color: #fefeff;
   cursor: pointer;
 }
 .option-color:focus, .option-color:hover,
@@ -80,7 +92,7 @@ html, body {
 .option-select:hover,
 .get-scheme-btn:focus,
 .get-scheme-btn:hover {
-  outline: #2B283A 1px solid;
+  outline: 1px solid;
 }
 
 .option-color,
@@ -90,16 +102,15 @@ html, body {
   letter-spacing: inherit;
 }
 
-.option-select,
-.get-scheme-btn {
-  color: inherit;
+.option-select {
+  padding-left: 0.5rem;
 }
 
 .get-scheme-btn {
   min-height: 2rem;
   padding: 0.5rem;
   letter-spacing: inherit;
-  box-shadow: 1px 1px 7px #2B283A;
+  box-shadow: 1px 1px 7px;
 }
 @media (min-width: 700px) {
   .get-scheme-btn {
@@ -107,7 +118,25 @@ html, body {
   }
 }
 .get-scheme-btn:active {
-  box-shadow: inset 1px 1px 5px #2B283A;
+  box-shadow: inset 1px 1px 5px;
+}
+
+.additional-controls {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.additional-controls i {
+  color: inherit;
+  font-size: 1rem;
+}
+.additional-controls i:hover, .additional-controls i:focus {
+  scale: 1.1;
+}
+.additional-controls i:not(:last-child) {
+  cursor: pointer;
 }
 
 .preview {
