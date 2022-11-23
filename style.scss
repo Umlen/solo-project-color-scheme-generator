@@ -143,6 +143,17 @@ body {
     width: 100%;
     font-weight: 600;
     padding-left: 2rem;
+    cursor: pointer;
+    & p {
+        margin: 0;
+    }
+    &:hover {
+        & p {
+            transform: scale(1.1);
+            text-shadow: 0 0 2px;
+            transition: 300ms;
+        }
+    }
     @media (min-width: 800px) {
         padding-left: 0;
         justify-content: center;

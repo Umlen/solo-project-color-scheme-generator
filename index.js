@@ -38,8 +38,13 @@ function createPreviewColorDiv(colorCode, colorLightness) {
     colorDiv.classList.add('preview-color-div');
     colorDiv.style.backgroundColor = colorCode;
     colorDiv.style.color = colorLightness > 40 ? '#000000' : '#ffffff';
-    colorDiv.textContent = colorCode;
+    colorDiv.innerHTML = `<p>${colorCode}</p>`;
+    colorDiv.addEventListener('click', clickToCopy);
     return colorDiv;
+}
+
+function clickToCopy(e) {
+    navigator.clipboard.writeText(e.target.textContent);
 }
 
 function getRandomScheme() {
