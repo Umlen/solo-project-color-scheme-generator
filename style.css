@@ -27,26 +27,21 @@ body {
 
 .container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   height: 100vh;
 }
 
 .controls {
-  width: 100%;
-  padding: 2rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-}
-@media (min-width: 700px) {
-  .controls {
-    justify-content: center;
-  }
+  width: 100%;
+  padding: 2rem 1rem;
 }
 @media (min-width: 800px) {
   .controls {
+    justify-content: center;
     gap: 2rem;
   }
 }
@@ -54,16 +49,11 @@ body {
 .scheme-options {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   gap: 1rem;
-}
-@media (min-width: 700px) {
-  .scheme-options {
-    flex-direction: row;
-  }
 }
 @media (min-width: 800px) {
   .scheme-options {
+    flex-direction: row;
     gap: 2rem;
   }
 }
@@ -73,7 +63,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
 }
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   .option-wrapper {
     align-items: center;
     gap: 1rem;
@@ -112,7 +102,7 @@ body {
   letter-spacing: inherit;
   box-shadow: 1px 1px 7px;
 }
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   .get-scheme-btn {
     align-self: stretch;
   }
@@ -122,41 +112,47 @@ body {
 }
 
 .additional-controls {
-  gap: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.5rem;
   align-items: center;
 }
 .additional-controls i {
   color: inherit;
   font-size: 1rem;
+  cursor: pointer;
 }
 .additional-controls i:hover, .additional-controls i:focus {
   scale: 1.1;
-}
-.additional-controls i:not(:last-child) {
-  cursor: pointer;
 }
 
 .preview {
   display: flex;
   flex-direction: column;
   height: 100%;
+  font-size: 0.8rem;
 }
-.preview div {
+@media (min-width: 800px) {
+  .preview {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1000px) {
+  .preview {
+    font-size: 1rem;
+  }
+}
+
+.preview-color-div {
+  display: flex;
+  align-items: center;
   height: 100%;
   width: 100%;
   font-weight: 600;
   padding-left: 2rem;
-  display: flex;
-  align-items: center;
 }
-@media (min-width: 700px) {
-  .preview {
-    flex-direction: row;
-  }
-  .preview div {
+@media (min-width: 800px) {
+  .preview-color-div {
     padding-left: 0;
     justify-content: center;
   }

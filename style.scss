@@ -1,11 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
 
+$primary-color: #fefeff;
+$secondary-color: #2B283A;
+
+@mixin flexColumn() {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexRow() {
+    display: flex;
+    align-items: center;
+}
+
 * {
     box-sizing: border-box;
 }
-
-$primary-color: #fefeff;
-$secondary-color: #2B283A;
 
 html, body {
     margin: 0;
@@ -30,45 +40,35 @@ body {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    @include flexColumn();
     height: 100vh;
 }
 
 .controls {
-    width: 100%;
-    padding: 2rem 1rem;
-    display: flex;
-    align-items: center;
+    @include flexRow();
     justify-content: space-between;
     gap: 1rem;
-    @media (min-width: 700px) {
-        justify-content: center;
-    }
+    width: 100%;
+    padding: 2rem 1rem;
     @media (min-width: 800px) {
+        justify-content: center;
         gap: 2rem;
     }
 }
 
 .scheme-options {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    @include flexColumn();
     gap: 1rem;
-    @media (min-width: 700px) {
-        flex-direction: row;
-    }
     @media (min-width: 800px) {
+        flex-direction: row;
         gap: 2rem;
     }
 }
 
 .option-wrapper {
-    display: flex;
-    flex-direction: column;
+    @include flexColumn();
     gap: .5rem;
-    @media (min-width: 700px) {
+    @media (min-width: 800px) {
         align-items: center;
         gap: 1rem;
     }
@@ -102,7 +102,7 @@ body {
     padding: .5rem;
     letter-spacing: inherit;
     box-shadow: 1px 1px 7px;
-    @media (min-width: 700px) {
+    @media (min-width: 800px) {
         align-self: stretch;
     }
     &:active {
@@ -111,41 +111,40 @@ body {
 }
 
 .additional-controls {
+    @include flexColumn();
     gap: .5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     & i {
         color: inherit; 
         font-size: 1rem;
+        cursor: pointer;
         &:hover,
         &:focus {
-            scale: 1.1  ;
-        }
-        &:not(:last-child) {
-            cursor: pointer;
+            scale: 1.1;
         }
     }
 }
 
 .preview {
-    display: flex;
-    flex-direction: column;
+    @include flexColumn();
     height: 100%;
-    & div {
-        height: 100%;
-        width: 100%;
-        font-weight: 600;
-        padding-left: 2rem;
-        display: flex;
-        align-items: center;
-    }
-    @media (min-width: 700px) {
+    font-size: .8rem;
+    @media (min-width: 800px) {
         flex-direction: row;
-        & div {
-            padding-left: 0;
-            justify-content: center;
-        }
+    }
+    @media (min-width: 1000px) {
+        font-size: 1rem;
+    }
+}
+
+.preview-color-div {
+    @include flexRow();
+    height: 100%;
+    width: 100%;
+    font-weight: 600;
+    padding-left: 2rem;
+    @media (min-width: 800px) {
+        padding-left: 0;
+        justify-content: center;
     }
 }
